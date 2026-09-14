@@ -34,6 +34,8 @@
     --space-4: 1.5rem;
     --space-5: 3rem;
     --space-6: 5rem;
+    --space-7: 10rem;
+
 
     --radius-sm: 0.25rem;
     --radius-md: 0.5rem;
@@ -45,6 +47,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 4.5rem;
 }
 
 body {
@@ -52,17 +55,18 @@ body {
     color: var(--body-color);
     font-family: var(--Merriweather-font-family);
     font-size: var(--font-size);
-    line-height: 1.6;
+    line-height: 1.5;
     font-weight: 400;
 }
 
 .header {
-    padding: var(--space-3);
+    padding: var(--space-3) 0;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     background-color: var(--white-color);
+    z-index: 1000;
 }
 
 a {
@@ -302,6 +306,7 @@ select {
     padding-bottom: var(--space-6);
 }
 
+
 .m-auto {
     margin: auto;
 }
@@ -347,6 +352,8 @@ select {
     text-transform: uppercase;
     border: none;
     border-radius: 10rem;
+    cursor: pointer;
+    transition: background-color var(--transition);
 }
 
 .btn-primary {
@@ -354,9 +361,23 @@ select {
     color: var(--white-color);
 }
 
+.btn-primary:hover {
+    background-color: #cf5331;
+}
+
 .btn-light {
     background-color: var(--light-color);
     color: var(--dark-color);
+}
+
+.btn-light:hover {
+    background-color: #d3d4d5;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 4px;
 }
 
 
@@ -373,8 +394,8 @@ select {
 }
 
 .section {
-    padding-top: var(--space-6);
-    padding-bottom: var(--space-6);
+    padding-top: 8rem;
+    padding-bottom: 8rem;
 }
 
 .section-title {
@@ -386,7 +407,7 @@ select {
 
 .center-line {
     width: 3.25rem;
-    height: 0.1rem;
+    height: 0.2rem;
     margin: var(--space-4) auto;
     border: 0;
     background-color: var(--primary-color);
@@ -453,23 +474,36 @@ p {
   margin-bottom: 1rem;
 }
 
-@media (max-width: 991px) {
-    .content-width {
-        width: 100%;
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
     }
 }
 
-@media (max-width: 992px) {
-    .grid-4 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
+@media (max-width: 1199px) {
     .container {
         max-width: 960px;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
+    .container {
+        max-width: 720px;
+        padding: 0 1.5rem;
+    }
+
+    .content-width {
+        width: 100%;
+    }
+}
+
+@media (max-width: 991px) {
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
     .grid-2,
     .grid-3,
     .grid-4 {
@@ -481,7 +515,7 @@ p {
     }
 
     .container {
-        padding: 0 1.5rem;
+        max-width: 540px;
     }
 
     .text-xxl {
@@ -489,13 +523,8 @@ p {
     }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
     .container {
-        padding: 0 1rem;
-    }
-
-    .section {
-        padding-top: var(--space-5);
-        padding-bottom: var(--space-5);
+        max-width: 100%;
     }
 }

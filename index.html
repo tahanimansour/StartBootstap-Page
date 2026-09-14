@@ -14,21 +14,21 @@
     <link href="./assests/css/main.css" rel="stylesheet" />
 </head>
 
-<body>
+<body id="page-top">
 
     <header class="header">
         <div class="container Flex">
             <div class="logo">
-                <a class="font-heading" href="./index.html">
+                <a class="font-heading text-lg font-bold" href="#page-top">
                     Start Bootstrap
                 </a>
             </div>
 
-            <button type="button" class="menu">
-                <img src="./assests/img/icons/menu.svg" alt="menu" />
+            <button type="button" class="menu" aria-label="Open menu" aria-controls="main-menu">
+                <img src="./assests/img/icons/menu.svg" alt="" />
             </button>
 
-            <nav class="list">
+            <nav id="main-menu" class="list" aria-label="Main navigation">
                 <ul>
                     <li><a class="nav-link font-heading" href="#about">About</a></li>
                     <li><a class="nav-link font-heading" href="#services">Services</a></li>
@@ -41,20 +41,32 @@
 
 
     <main>
-        <section class="hero py-6 flex-center text-white">
-            <div class="container text-center">
-                <div class="content-width">
-                    <h1 class="text-xxl">Your Favorite Place for Free Bootstrap Themes</h1>
+        <section class="hover flex-center text-white">
+            <div class="container text-center content-width">
+                    <h1>Your Favorite Place for Free Bootstrap Themes</h1>
                     <hr class="center-line">
                     <p class="text-white-75 mb-5">
-                        Start Bootstrap can help you build better websites using the Bootstrap framework! Just download a theme and start customizing, no strings attached!</p>
+                        Start Bootstrap can help you build better websites using the Bootstrap framework! Just download
+                        a theme and start customizing, no strings attached!</p>
                     <a href="#about" class="btn btn-primary">Find Out More</a>
-                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about section bg-primary text-white">
+            <div class="container text-center content-width">
+                    <h2 class="section-title">We've got what you need!</h2>
+                    <hr class="center-line bg-white">
+                    <p class="text-white-75 mb-4">
+                        Build your next website with Start Bootstrap.
+                        Explore our collection of free, open-source themes,
+                        choose your favorite, and customize it to suit your project.
+                    </p>
+
+                    <a href="#services" class="btn btn-light">Get Started!</a>
             </div>
         </section>
 
     </main>
-
 
 </body>
 

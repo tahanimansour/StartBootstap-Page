@@ -1,4 +1,5 @@
 .nav-link {
+    display: block;
     font-weight: 700;
     font-size: 0.9rem;
     padding: 0.75rem 0;
@@ -6,36 +7,60 @@
 
 .list ul {
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
     list-style-type: none;
-    margin: 8px 0;
+    margin: 0;
 }
 
-.list a,
-.logo a {
+.list a {
     color: var(--secondary-color);
+}
+
+.logo a {
+    display: inline-block;
+    padding: 0.3125rem 0;
+    color: var(--dark-color);
+}
+
+.list a:hover,
+.logo a:hover {
+    color: var(--primary-color);
+}
+
+.header {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    transition: background-color var(--transition);
 }
 
 .menu {
     display: none;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: var(--radius-sm);
+    background-color: transparent;
+    cursor: pointer;
 }
 
 .menu img {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
 }
 
-.hero{
-    padding-top: 4.5rem;
-    min-height: 100vh;
+.hover {
+    padding-top: var(--space-7);
+    padding-bottom: 5.5rem;
 
     background-image:
         linear-gradient(rgba(92, 77, 66, 0.8), rgba(92, 77, 66, 0.8)),
-        url("../img/hero.jpg");
+        url("../img/hover.jpg");
 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.hover h1 {
+    font-size: 2.25rem;
 }
 
 @media (max-width: 991px) {
@@ -45,12 +70,29 @@
 
     .list {
         display: none;
+        width: 100%;
+        max-height: 70vh;
+        overflow-y: auto;
+    }
+
+    .list ul {
+        flex-direction: column;
+        gap: 0;
+        margin: 0.5rem 0;
     }
 }
 
 @media (min-width: 992px) {
+    .hover {
+        height: 100vh;
+        min-height: 40rem;
+        padding-top: 4.5rem;
+        padding-bottom: 0;
+    }
+
     .header {
         background-color: transparent;
+        box-shadow: none;
     }
 
     .list a,
@@ -58,7 +100,26 @@
         color: rgba(255, 255, 255, 0.7);
     }
 
-    .hero p {
+    .nav-link {
+        padding: 0;
+    }
+
+    .list a:hover,
+    .logo a:hover {
+        color: var(--white-color);
+    }
+
+    .hover p {
         font-size: 1.15rem;
+    }
+
+    .hover h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .hover h1 {
+        font-size: 3.5rem;
     }
 }
