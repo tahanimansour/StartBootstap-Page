@@ -52,3 +52,8 @@
     margin: auto;
     grid-template-columns: repeat(3, 1fr);
 }
+
+.contact-icon {
+    width: 32px;
+    height: 40px;
+}
