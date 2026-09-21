@@ -35,7 +35,7 @@
     --space-5: 3rem;
     --space-6: 5rem;
     --space-7: 10rem;
-
+    --space-8: 8rem;
 
     --radius-sm: 0.25rem;
     --radius-md: 0.5rem;
@@ -59,16 +59,6 @@ body {
     font-weight: 400;
 }
 
-.header {
-    padding: var(--space-3) 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--white-color);
-    z-index: 1000;
-}
-
 a {
     text-decoration: none;
 }
@@ -76,13 +66,6 @@ a {
 img {
     max-width: 100%;
     display: block;
-}
-
-button,
-input,
-textarea,
-select {
-    font: inherit;
 }
 
 .container {
@@ -161,6 +144,10 @@ select {
     gap: var(--space-4);
 }
 
+.gap-5 {
+    gap: var(--space-5);
+}
+
 .w-full {
     width: 100%;
 }
@@ -176,6 +163,7 @@ select {
 .content-width {
     width: 66.666%;
     margin: 0 auto;
+    padding: 0 0.5rem;
 }
 
 .relative {
@@ -234,6 +222,10 @@ select {
     color: rgba(255, 255, 255, 0.75);
 }
 
+.text-muted {
+    color: var(--secondary-color);
+}
+
 .font-normal {
     font-weight: 400;
 }
@@ -278,6 +270,10 @@ select {
     padding: var(--space-3);
 }
 
+.pt-4 {
+    padding-top: var(--space-4);
+}
+
 .p-4 {
     padding: var(--space-4);
 }
@@ -306,7 +302,6 @@ select {
     padding-bottom: var(--space-6);
 }
 
-
 .m-auto {
     margin: auto;
 }
@@ -321,6 +316,10 @@ select {
 
 .mt-3 {
     margin-top: var(--space-3);
+}
+
+.mt-5 {
+    margin-top: var(--space-5);
 }
 
 .mb-1 {
@@ -343,7 +342,41 @@ select {
     margin-bottom: var(--space-5);
 }
 
-.btn{
+.nav-link {
+    display: block;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.75rem 0;
+}
+
+.nav-list {
+    display: flex;
+    gap: 2rem;
+    list-style-type: none;
+    margin: 0;
+}
+
+.icon-card {
+    text-align: center;
+}
+
+.icon-card img {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 1.75rem;
+}
+
+.icon-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.icon-card p {
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.btn {
     display: inline-block;
     padding: 1.25rem 2.25rem;
     font-family: var(--Merriweather-Sans-font-family);
@@ -374,23 +407,8 @@ select {
     background-color: #d3d4d5;
 }
 
-a:focus-visible,
-button:focus-visible {
-    outline: 3px solid var(--primary-color);
-    outline-offset: 4px;
-}
-
-
-.form-control {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border: 1px solid #ced4da;
-    border-radius: var(--radius-sm);
-    outline: none;
-}
-
-.form-control:focus {
-    border-color: var(--primary-color);
+.mb-0 {
+    margin-bottom: 0;
 }
 
 .section {
@@ -399,11 +417,9 @@ button:focus-visible {
 }
 
 .section-title {
-    margin-bottom: var(--space-3);
     font-family: var(--Merriweather-Sans-font-family);
     font-size: var(--font-xl);
 }
-
 
 .center-line {
     width: 3.25rem;
@@ -419,6 +435,12 @@ button:focus-visible {
 
 .rounded {
     border-radius: var(--radius-md);
+}
+
+.bg-cover {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .bg-primary {
@@ -494,13 +516,21 @@ p {
 
     .content-width {
         width: 100%;
+        padding: 0;
     }
-}
 
-@media (max-width: 991px) {
     .grid-4 {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .menu {
+        display: block;
+    }
+
+    .list {
+        display: none;
+    }
+
 }
 
 @media (max-width: 767px) {
@@ -526,5 +556,80 @@ p {
 @media (max-width: 575px) {
     .container {
         max-width: 100%;
+    }
+
+.section-title {
+        font-size: 1.6rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+        transition: none !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .hero {
+        height: 100vh;
+        min-height: 40rem;
+        padding-top: 4.5rem;
+        padding-bottom: 0;
+    }
+
+    .nav-link {
+        padding: 0;
+    }
+
+    .hero p {
+        font-size: 1.15rem;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+}
+
+@supports (animation-timeline: scroll()) {
+    @media (min-width: 992px) {
+        .header {
+            animation: header-colors linear both;
+            animation-timeline: scroll();
+            animation-range: 0px 1px;
+        }
+
+        .logo a,
+        .list a {
+            color: inherit;
+        }
+
+        .logo a:hover,
+        .list a:hover {
+            color: var(--primary-color);
+        }
+    }
+}
+
+@keyframes header-colors {
+    from {
+        background-color: transparent;
+        color: rgba(255, 255, 255, 0.7);
+        box-shadow: none;
+    }
+
+    to {
+        background-color: var(--white-color);
+        color: var(--dark-color);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     }
 }
